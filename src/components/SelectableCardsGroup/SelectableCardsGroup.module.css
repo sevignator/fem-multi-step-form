@@ -1,0 +1,66 @@
+.wrapper {
+  display: flex;
+  gap: 15px;
+  padding-bottom: 30px;
+}
+
+.card {
+  display: block;
+  position: relative;
+  flex: 1;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cardInput {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+.cardBody {
+  position: relative;
+  padding: 15px;
+  background-color: var(--clr-white);
+  border-radius: 8px;
+  border: solid 1px var(--clr-light-gray);
+  transition:
+    background-color var(--time-transition-regular),
+    border-color var(--time-transition-regular);
+
+  &:hover {
+    border-color: var(--clr-purplish-blue);
+  }
+
+  .card:has(:checked) & {
+    background-color: var(--clr-magnolia);
+    border-color: var(--clr-purplish-blue);
+  }
+}
+
+.icon {
+  display: block;
+  margin-bottom: 40px;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.label {
+  color: var(--clr-marine-blue);
+  font-weight: 700;
+}
+
+.price {
+  color: var(--clr-cool-gray);
+}
+
+.additionalInfo {
+  color: var(--clr-marine-blue);
+}

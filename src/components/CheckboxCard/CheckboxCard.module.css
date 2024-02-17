@@ -1,0 +1,86 @@
+.card {
+  position: relative;
+  display: block;
+  /* @TODO: delete when no longer needed */
+  margin-bottom: 15px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.cardInput {
+  z-index: 0;
+  position: absolute;
+  inset: 0;
+  margin: 0;
+}
+
+.cardBody {
+  --size-padding: 20px;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--size-padding);
+  flex: 1;
+  padding: var(--size-padding);
+  background-color: var(--clr-white);
+  border: solid 1px var(--clr-light-gray);
+  border-radius: 8px;
+  transition:
+    background-color var(--time-transition-regular),
+    border-color var(--time-transition-regular);
+
+  &:hover {
+    border-color: var(--clr-purplish-blue);
+  }
+
+  .card:has(:checked) & {
+    background-color: var(--clr-magnolia);
+    border-color: var(--clr-purplish-blue);
+  }
+}
+
+.cardCheckbox {
+  display: grid;
+  place-items: center;
+  width: 20px;
+  aspect-ratio: 1;
+  border: solid 1px var(--clr-light-gray);
+  border-radius: 4px;
+  transition:
+    background-color var(--time-transition-regular),
+    border-color var(--time-transition-regular);
+
+  .card:has(:checked) & {
+    background-color: var(--clr-purplish-blue);
+    border-color: var(--clr-purplish-blue);
+    transition: none;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  flex: 1;
+}
+
+.label {
+  color: var(--clr-marine-blue);
+  font-weight: 700;
+}
+
+.price {
+  color: var(--clr-purplish-blue);
+}
+
+.additionalInfo {
+  color: var(--clr-cool-gray);
+}

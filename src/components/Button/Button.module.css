@@ -1,0 +1,42 @@
+.button {
+  padding: 1em;
+  min-width: 7.5rem;
+  border: 0;
+  border-radius: 8px;
+  background-color: transparent;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--clr-cool-gray);
+  cursor: pointer;
+  user-select: none;
+  transition:
+    opacity var(--time-transition-regular),
+    color var(--time-transition-regular);
+}
+
+.link {
+  min-width: auto;
+  padding-inline: 0;
+
+  &:hover {
+    color: var(--clr-marine-blue);
+  }
+}
+
+.primary {
+  background-color: var(--clr-purplish-blue);
+  color: var(--clr-white);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.secondary {
+  background-color: var(--clr-marine-blue);
+  color: var(--clr-white);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

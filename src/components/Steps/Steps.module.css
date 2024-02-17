@@ -1,0 +1,54 @@
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  text-transform: uppercase;
+}
+
+.stepPosition {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  aspect-ratio: 1;
+  border-radius: 100vw;
+  border: solid 1px white;
+  font-weight: 600;
+  transition:
+    background-color var(--time-transition-fast) ease-out,
+    border-color var(--time-transition-fast) ease-out,
+    color var(--time-transition-fast) ease-out;
+
+  .stepActive & {
+    background-color: var(--clr-light-blue);
+    color: var(--clr-marine-blue);
+    border-color: var(--clr-light-blue);
+  }
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stepHeader {
+  color: var(--clr-pastel-blue);
+  display: block;
+  font-size: 0.75rem;
+}
+
+.stepText {
+  display: block;
+  font-weight: 600;
+  letter-spacing: 0.075em;
+}

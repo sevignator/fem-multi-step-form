@@ -1,0 +1,57 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  color: var(--clr-cool-gray);
+  font-weight: 700;
+  transition: color var(--time-transition-fast);
+  cursor: pointer;
+  user-select: none;
+
+  &:has(input:not(:checked)) .leftLabel,
+  &:has(input:checked) .rightLabel {
+    color: var(--clr-marine-blue);
+  }
+}
+
+.switch {
+  position: relative;
+  display: block;
+  width: 40px;
+  height: 20px;
+
+  & .checkbox {
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+    margin: 0;
+    padding: 0;
+  }
+
+  & .toggleOuter {
+    --size-padding: 4px;
+    position: absolute;
+    inset: 0;
+    padding: var(--size-padding);
+    background-color: var(--clr-marine-blue);
+    border-radius: 100vw;
+    overflow: hidden;
+
+    & .toggleInner {
+      position: absolute;
+      left: var(--size-padding);
+      height: calc(100% - var(--size-padding) * 2);
+      aspect-ratio: 1;
+      background-color: var(--clr-white);
+      border-radius: 100vw;
+      transition:
+        left var(--time-transition-fast),
+        transform var(--time-transition-fast);
+
+      .wrapper:has(:checked) & {
+        left: calc(100% - var(--size-padding));
+        transform: translateX(-100%);
+      }
+    }
+  }
+}
