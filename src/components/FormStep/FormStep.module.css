@@ -8,10 +8,87 @@
   display: block;
 }
 
+.changeButton {
+  padding: 0;
+  display: block;
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  text-decoration: underline;
+  transition: color var(--time-transition-fast);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--clr-purplish-blue);
+  }
+}
+
 .switchWrapper {
   display: flex;
   justify-content: center;
-  background-color: var(--clr-magnolia);
-  padding: 15px;
+  padding: 10;
   border-radius: 8px;
+}
+
+.summaryWrapper {
+  --size-padding: 20px;
+  padding-inline: var(--size-padding);
+  color: var(--clr-cool-gray);
+  font-size: 0.875rem;
+
+  & * {
+    margin: 0;
+  }
+}
+
+.summaryEntry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.summaryOptions {
+  margin-bottom: var(--size-padding);
+  margin-inline: calc(var(--size-padding) * -1);
+  padding: var(--size-padding);
+  background-color: var(--clr-alabaster);
+  border-radius: var(--size-border-radius-regular);
+}
+
+.summaryPlan {
+  margin-bottom: var(--size-padding);
+  padding-bottom: var(--size-padding);
+  border-bottom: solid 1px var(--clr-light-gray);
+
+  & .label {
+    margin-bottom: 0.25em;
+  }
+
+  & .label,
+  & .price {
+    color: var(--clr-marine-blue);
+    font-size: 1rem;
+    font-weight: 700;
+  }
+}
+
+.summaryAddOns {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-padding);
+}
+
+.summaryAddOn {
+  & .price {
+    color: var(--clr-marine-blue);
+  }
+}
+
+.summaryTotal {
+  & .price {
+    color: var(--clr-purplish-blue);
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
 }

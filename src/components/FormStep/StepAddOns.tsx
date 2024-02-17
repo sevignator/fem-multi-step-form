@@ -1,5 +1,5 @@
 import { addOnOptions } from '@src/data.ts';
-import { AddOns } from '@context/DataProvider';
+import { type AddOns } from '@context/DataProvider';
 import useDataContext from '@hooks/useDataContext';
 
 import CheckboxCard from '@components/CheckboxCard';
