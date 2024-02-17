@@ -1,3 +1,4 @@
+import { PlanType } from '@context/DataProvider';
 import useDataContext from '@hooks/useDataContext';
 import styles from './FormStep.module.css';
 
@@ -49,7 +50,7 @@ function StepPlan({ position, activeStepNumber }: StepPlanProps) {
         options={cardOptions}
         selectedOption={planType}
         isYearly={isYearly}
-        handleChange={(e) => changePlanType(e.target.value)}
+        handleChange={(e) => changePlanType(e.target.value as PlanType)}
       />
 
       <div className={styles.switchWrapper}>

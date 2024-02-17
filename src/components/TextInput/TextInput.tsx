@@ -21,7 +21,7 @@ function TextInput({
   const inputId = React.useId();
   const [isInvalid, setIsInvalid] = React.useState(false);
 
-  function handleInvalid(e) {
+  function handleInvalid(e: React.InvalidEvent<HTMLInputElement>) {
     const isValid = e.target.value !== '' || e.target.value !== undefined
     setIsInvalid(isValid);
   }

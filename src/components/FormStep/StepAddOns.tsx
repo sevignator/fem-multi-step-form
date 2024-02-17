@@ -1,3 +1,4 @@
+import { AddOns } from '@context/DataProvider';
 import useDataContext from '@hooks/useDataContext';
 
 import CheckboxCard from '@components/CheckboxCard';
@@ -54,8 +55,8 @@ function StepAddOns({ position, activeStepNumber }: StepAddOnsProps) {
           monthlyPrice={option.monthlyPrice}
           isYearly={isYearly}
           value={option.value}
-          handleChange={(e) => toggleAddOn(e.target.value)}
-          isChecked={addOns[option.value]}
+          handleChange={(e) => toggleAddOn(e.target.value as keyof AddOns)}
+          isChecked={addOns[option.value as keyof AddOns]}
         />
       ))}
     </FormStep>
