@@ -1,3 +1,4 @@
+import { addOnOptions } from '@src/data.ts';
 import { AddOns } from '@context/DataProvider';
 import useDataContext from '@hooks/useDataContext';
 
@@ -11,35 +12,8 @@ export type StepAddOnsProps = {
   activeStepNumber: number;
 };
 
-export type AddOnOption = {
-  label: string;
-  value: string;
-  description: string;
-  monthlyPrice: number;
-};
-
 function StepAddOns({ position, activeStepNumber }: StepAddOnsProps) {
   const { addOns, toggleAddOn, isYearly } = useDataContext();
-  const addOnOptions: AddOnOption[] = [
-    {
-      label: 'Online service',
-      value: 'online-service',
-      description: 'Access to multiplayer games',
-      monthlyPrice: 1,
-    },
-    {
-      label: 'Larger storage',
-      value: 'larger-storage',
-      description: 'Extra 1TB of cloud storage',
-      monthlyPrice: 2,
-    },
-    {
-      label: 'Customizable profile',
-      value: 'customizable-profile',
-      description: 'Custom theme on your profile',
-      monthlyPrice: 2,
-    },
-  ];
 
   return (
     <FormStep position={position} activeStepNumber={activeStepNumber}>

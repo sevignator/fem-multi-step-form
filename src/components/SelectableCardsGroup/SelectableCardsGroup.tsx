@@ -1,33 +1,25 @@
 import React from 'react';
 import styles from './SelectableCardsGroup.module.css';
+import { planOptions } from '@src/data';
 
 import SelectableCard from './SelectableCard';
 
 export type SelectableCardsGroupProps = {
   groupName: string;
-  options: CardOption[];
   selectedOption: string;
   isYearly: boolean;
   handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export type CardOption = {
-  label: string;
-  value: string;
-  monthlyPrice: number;
-  imgSrc: string;
-};
-
 function SelectableCardsGroup({
   groupName,
-  options,
   selectedOption,
   isYearly,
   handleChange,
 }: SelectableCardsGroupProps) {
   return (
     <div className={styles.wrapper}>
-      {options.map(({ label, value, monthlyPrice, imgSrc }) => (
+      {planOptions.map(({ label, value, monthlyPrice, imgSrc }) => (
         <SelectableCard
           key={value}
           groupName={groupName}
