@@ -2,7 +2,7 @@ import React from 'react';
 import './App.module.css';
 import styles from './App.module.css';
 
-import DataProvider from './context/DataProvider';
+import DataProvider from '@context/DataProvider';
 import Steps from '@components/Steps';
 import Form from '@components/Form';
 
