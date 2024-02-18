@@ -60,23 +60,23 @@ body {
   align-items: center;
   min-height: 100dvh;
   padding: 20px;
+
+  @media (max-width: 900px) {
+    flex-direction: column;
+  }
 }
 
 .wrapper {
   --size-wrapper-padding: 16px;
   display: flex;
   flex-wrap: wrap;
-  width: 940px;
+  width: min(940px, 100%);
   min-height: 600px;
   margin-inline: auto;
   padding: var(--size-wrapper-padding);
   background-color: var(--clr-white);
   border-radius: 16px;
   box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.15);
-
-  @media (max-width: 375px) {
-    flex-direction: column;
-  }
 }
 
 .sidebarLarge {
@@ -106,5 +106,19 @@ body {
 
   @media (max-width: 900px) {
     padding: 15px;
+  }
+}
+
+.desktopFooter {
+  @media (max-width: 900px) {
+    display: none;
+  }
+}
+
+.mobileFooter {
+  display: none;
+
+  @media (max-width: 900px) {
+    display: block;
   }
 }

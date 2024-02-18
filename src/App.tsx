@@ -44,16 +44,27 @@ function App() {
               setFormSubmitted={setFormSubmitted}
             />
             {!formSubmitted && (
-              <ButtonGroup
-                formId={formId}
-                activeStepNumber={activeStepNumber}
-                maxStepNumber={stepComponents.length}
-                changeActiveNumber={changeActiveNumber}
-                changeStepSubmitted={changeStepSubmitted}
-              />
+              <div className={styles.desktopFooter}>
+                <ButtonGroup
+                  formId={formId}
+                  activeStepNumber={activeStepNumber}
+                  maxStepNumber={stepComponents.length}
+                  changeActiveNumber={changeActiveNumber}
+                  changeStepSubmitted={changeStepSubmitted}
+                />
+              </div>
             )}
           </main>
         </div>
+        <footer className={styles.mobileFooter}>
+          <ButtonGroup
+            formId={formId}
+            activeStepNumber={activeStepNumber}
+            maxStepNumber={stepComponents.length}
+            changeActiveNumber={changeActiveNumber}
+            changeStepSubmitted={changeStepSubmitted}
+          />
+        </footer>
       </div>
     </DataProvider>
   );
