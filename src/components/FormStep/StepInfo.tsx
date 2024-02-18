@@ -7,16 +7,21 @@ import TextInput from '@components/TextInput';
 import Title from '@components/Title';
 
 export type StepInfoProps = {
-  position: number;
+  stepNumber: number;
   activeStepNumber: number;
+  stepSubmitted: boolean;
 };
 
-function StepInfo({ position, activeStepNumber }: StepInfoProps) {
+function StepInfo({
+  stepNumber,
+  activeStepNumber,
+  stepSubmitted,
+}: StepInfoProps) {
   const { personalInfo, changePersonalInfo } = useDataContext();
   const { name, email, phone } = personalInfo;
 
   return (
-    <FormStep position={position} activeStepNumber={activeStepNumber}>
+    <FormStep stepNumber={stepNumber} activeStepNumber={activeStepNumber}>
       <Title>Personal info</Title>
       <Description>
         Please provide your name, email address, and phone number.
@@ -27,6 +32,7 @@ function StepInfo({ position, activeStepNumber }: StepInfoProps) {
           label='Name'
           placeholder='e.g. Stephen King'
           required={true}
+          isInvalid={stepSubmitted && name === ''}
           value={name}
           handleChange={(e) => changePersonalInfo('name', e?.target.value)}
         />
@@ -34,6 +40,7 @@ function StepInfo({ position, activeStepNumber }: StepInfoProps) {
           label='Email Address'
           placeholder='e.g. stephenking@lorem.com'
           required={true}
+          isInvalid={stepSubmitted && email === ''}
           value={email}
           handleChange={(e) => changePersonalInfo('email', e?.target.value)}
         />
@@ -41,6 +48,7 @@ function StepInfo({ position, activeStepNumber }: StepInfoProps) {
           label='Phone Number'
           placeholder='e.g. +1 234 567 890'
           required={true}
+          isInvalid={stepSubmitted && phone === ''}
           value={phone}
           handleChange={(e) => changePersonalInfo('phone', e?.target.value)}
         />

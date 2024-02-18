@@ -9,15 +9,17 @@ import Switch from '@components/Switch';
 import Title from '@components/Title';
 
 export type StepPlanProps = {
-  position: number;
+  stepNumber: number;
   activeStepNumber: number;
+  stepSubmitted: boolean;
 };
 
-function StepPlan({ position, activeStepNumber }: StepPlanProps) {
-  const { planType, changePlanType, isYearly, toggleIsYearly } = useDataContext();
+function StepPlan({ stepNumber, activeStepNumber }: StepPlanProps) {
+  const { planType, changePlanType, isYearly, toggleIsYearly } =
+    useDataContext();
 
   return (
-    <FormStep position={position} activeStepNumber={activeStepNumber}>
+    <FormStep stepNumber={stepNumber} activeStepNumber={activeStepNumber}>
       <Title>Select your plan</Title>
       <Description>
         You have the option of monthly or yearly billing.

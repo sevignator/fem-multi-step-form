@@ -8,15 +8,16 @@ import FormStep from '@components/FormStep';
 import Title from '@components/Title';
 
 export type StepAddOnsProps = {
-  position: number;
+  stepNumber: number;
   activeStepNumber: number;
+  stepSubmitted: boolean;
 };
 
-function StepAddOns({ position, activeStepNumber }: StepAddOnsProps) {
+function StepAddOns({ stepNumber, activeStepNumber }: StepAddOnsProps) {
   const { addOns, toggleAddOn, isYearly } = useDataContext();
 
   return (
-    <FormStep position={position} activeStepNumber={activeStepNumber}>
+    <FormStep stepNumber={stepNumber} activeStepNumber={activeStepNumber}>
       <Title>Pick add-ons</Title>
       <Description>Add-ons help enhance your gaming experience.</Description>
 

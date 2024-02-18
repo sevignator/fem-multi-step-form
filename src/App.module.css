@@ -43,6 +43,7 @@
   /* Timing */
   --time-transition-fast: 200ms;
   --time-transition-regular: 300ms;
+  --time-transition-slow: 400ms;
 }
 
 html {

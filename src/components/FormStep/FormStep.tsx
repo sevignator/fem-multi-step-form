@@ -3,16 +3,16 @@ import styles from './FormStep.module.css';
 
 export type FormStepProps = {
   children: React.ReactNode;
-  position: number;
+  stepNumber: number;
   activeStepNumber: number;
 };
 
-function FormStep({ children, position, activeStepNumber }: FormStepProps) {
+function FormStep({ children, stepNumber, activeStepNumber }: FormStepProps) {
   return (
     <div
       className={clsx(
         styles.wrapper,
-        position === activeStepNumber ? styles.visible : undefined
+        stepNumber === activeStepNumber ? styles.visible : undefined
       )}
     >
       {children}

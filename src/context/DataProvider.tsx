@@ -16,7 +16,10 @@ export type AddOns = {
 
 type DataContextType = {
   personalInfo: PersonalInfo;
-  changePersonalInfo: (infoType: keyof PersonalInfo, value: string | undefined) => void;
+  changePersonalInfo: (
+    infoType: keyof PersonalInfo,
+    value: string | undefined
+  ) => void;
   planType: PlanType;
   changePlanType: (planName: PlanType) => void;
   isYearly: boolean;
@@ -41,9 +44,12 @@ function DataProvider({ children }: { children: React.ReactNode }) {
     'customizable-profile': false,
   });
 
-  function changePersonalInfo(infoType: keyof PersonalInfo, value: string | undefined) {
+  function changePersonalInfo(
+    infoType: keyof PersonalInfo,
+    value: string | undefined
+  ) {
     if (value === undefined) {
-      throw new Error('A string value must be provided.')
+      throw new Error('A string value must be provided.');
     }
 
     setPersonalInfo({

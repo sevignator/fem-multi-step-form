@@ -10,11 +10,12 @@ import FormStep from '@components/FormStep';
 import Title from '@components/Title';
 
 type StepSummaryProps = {
-  position: number;
+  stepNumber: number;
   activeStepNumber: number;
+  stepSubmitted: boolean;
 };
 
-function StepSummary({ position, activeStepNumber }: StepSummaryProps) {
+function StepSummary({ stepNumber, activeStepNumber }: StepSummaryProps) {
   const { planType, addOns, isYearly, toggleIsYearly } = useDataContext();
   const selectedPlan = planOptions.find(
     (option) => option.value === planType
@@ -27,7 +28,7 @@ function StepSummary({ position, activeStepNumber }: StepSummaryProps) {
     selectedAddOns.reduce((total, current) => total + current.monthlyPrice, 0);
 
   return (
-    <FormStep position={position} activeStepNumber={activeStepNumber}>
+    <FormStep stepNumber={stepNumber} activeStepNumber={activeStepNumber}>
       <Title>Finishing up</Title>
       <Description>
         Double-check everything looks OK before confirming.
@@ -42,6 +43,7 @@ function StepSummary({ position, activeStepNumber }: StepSummaryProps) {
                   {selectedPlan.label} ({isYearly ? 'Yearly' : 'Monthly'})
                 </div>
                 <button
+                  type='button'
                   className={styles.changeButton}
                   onClick={toggleIsYearly}
                 >

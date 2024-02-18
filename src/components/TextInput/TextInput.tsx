@@ -8,6 +8,7 @@ export type TextInputProps = {
   handleChange: (e?: React.ChangeEvent<HTMLInputElement>) => void;
   placeholder?: string;
   required?: boolean;
+  isInvalid?: boolean;
 };
 
 function TextInput({
@@ -16,15 +17,9 @@ function TextInput({
   handleChange,
   placeholder,
   required,
+  isInvalid,
 }: TextInputProps) {
-  const inputRef = React.useRef<HTMLInputElement | null>(null);
   const inputId = React.useId();
-  const [isInvalid, setIsInvalid] = React.useState(false);
-
-  function handleInvalid(e: React.InvalidEvent<HTMLInputElement>) {
-    const isValid = e.target.value !== '' || e.target.value !== undefined
-    setIsInvalid(isValid);
-  }
 
   return (
     <div className={styles.wrapper}>
@@ -38,17 +33,12 @@ function TextInput({
       </div>
       <input
         type='text'
-        ref={inputRef}
         id={inputId}
         className={clsx(styles.input, isInvalid && styles.invalid)}
         value={value}
         placeholder={placeholder}
         required={required}
-        onChange={(e) => {
-          handleChange(e);
-          setIsInvalid(false);
-        }}
-        onInvalid={handleInvalid}
+        onChange={handleChange}
       />
     </div>
   );

@@ -8,6 +8,7 @@ export type ButtonGroupProps = {
   activeStepNumber: number;
   maxStepNumber: number;
   changeActiveNumber: (num: number) => void;
+  changeStepSubmitted: (index: number, isSubmitted: boolean) => void;
 };
 
 function ButtonGroup({
@@ -15,6 +16,7 @@ function ButtonGroup({
   activeStepNumber,
   maxStepNumber,
   changeActiveNumber,
+  changeStepSubmitted,
 }: ButtonGroupProps) {
   const { personalInfo } = useDataContext();
   const { name, email, phone } = personalInfo;
@@ -22,6 +24,7 @@ function ButtonGroup({
   function goToNextStep() {
     if (activeStepNumber === 1) {
       if (name === '' || email === '' || phone === '') {
+        changeStepSubmitted(activeStepNumber - 1, true);
         return;
       }
     }
@@ -45,7 +48,7 @@ function ButtonGroup({
 
       <div>
         {activeStepNumber < maxStepNumber && (
-          <Button type='submit' variant='secondary' clickHandler={goToNextStep}>
+          <Button type='button' variant='secondary' clickHandler={goToNextStep}>
             Next Step
           </Button>
         )}
