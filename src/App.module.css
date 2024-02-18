@@ -59,7 +59,7 @@ body {
   display: flex;
   align-items: center;
   min-height: 100dvh;
-  padding: 40px;
+  padding: 20px;
 }
 
 .wrapper {
@@ -73,9 +73,13 @@ body {
   background-color: var(--clr-white);
   border-radius: 16px;
   box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.15);
+
+  @media (max-width: 375px) {
+    flex-direction: column;
+  }
 }
 
-.sidebar {
+.sidebarLarge {
   width: 275px;
   padding: 38px 32px;
   background-color: var(--clr-purplish-blue);
@@ -85,10 +89,22 @@ body {
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 }
 
 .main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 20px;
   flex: 1;
   padding-inline: 100px calc(100px - var(--size-wrapper-padding));
   padding-block: 40px var(--size-wrapper-padding);
+
+  @media (max-width: 900px) {
+    padding: 15px;
+  }
 }

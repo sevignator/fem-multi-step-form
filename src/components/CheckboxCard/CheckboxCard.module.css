@@ -1,13 +1,13 @@
 .card {
   position: relative;
   display: block;
-  /* @TODO: delete when no longer needed */
   margin-bottom: 15px;
   cursor: pointer;
   user-select: none;
 }
 
 .cardInput {
+  flex: 1;
   z-index: 0;
   position: absolute;
   inset: 0;

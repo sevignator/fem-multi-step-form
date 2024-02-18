@@ -1,45 +1,30 @@
 import React from 'react';
 import styles from './Form.module.css';
+import { stepComponents } from '@src/steps';
+
 import iconThankYouSrc from '@assets/images/icon-thank-you.svg';
-
-import ButtonGroup from '@components/ButtonGroup';
-
-import StepAddOns from '../FormStep/StepAddOns';
-import StepInfo from '../FormStep/StepInfo';
-import StepPlan from '../FormStep/StepPlan';
-import StepSummary from '../FormStep/StepSummary';
 
 export type FormProps = {
   formId: string;
   activeStepNumber: number;
-  setActiveStepNumber: (num: number) => void;
+  stepsSubmitted: boolean[];
+  formSubmitted: boolean;
+  setFormSubmitted: (isSubmitted: boolean) => void;
 };
 
-function Form({ formId, activeStepNumber, setActiveStepNumber }: FormProps) {
-  const steps = [StepInfo, StepPlan, StepAddOns, StepSummary];
-  const [stepsSubmitted, setStepsSubmitted] = React.useState(
-    steps.map(() => false)
-  );
-  const [isSubmitted, setIsSubmitted] = React.useState(false);
-
-  function changeActiveNumber(num: number) {
-    if (num > 0 && num <= steps.length) {
-      setActiveStepNumber(num);
-    }
-  }
-
-  function changeStepSubmitted(index: number, isSubmitted: boolean) {
-    const copy = [...stepsSubmitted];
-    copy[index] = isSubmitted;
-    setStepsSubmitted(copy);
-  }
-
+function Form({
+  formId,
+  activeStepNumber,
+  stepsSubmitted,
+  formSubmitted,
+  setFormSubmitted,
+}: FormProps) {
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    setIsSubmitted(true);
+    setFormSubmitted(true);
   }
 
-  if (isSubmitted) {
+  if (formSubmitted) {
     return (
       <div className={styles.confirmationWrapper}>
         <div>
@@ -57,11 +42,11 @@ function Form({ formId, activeStepNumber, setActiveStepNumber }: FormProps) {
 
   return (
     <>
-      {isSubmitted ? (
+      {formSubmitted ? (
         'Thank you'
       ) : (
         <form id={formId} className={styles.form} onSubmit={handleSubmit}>
-          {steps.map((Step, index) => (
+          {stepComponents.map((Step, index) => (
             <Step
               key={index}
               stepNumber={index + 1}
@@ -69,13 +54,6 @@ function Form({ formId, activeStepNumber, setActiveStepNumber }: FormProps) {
               stepSubmitted={stepsSubmitted[index]}
             />
           ))}
-          <ButtonGroup
-            formId={formId}
-            activeStepNumber={activeStepNumber}
-            maxStepNumber={steps.length}
-            changeActiveNumber={changeActiveNumber}
-            changeStepSubmitted={changeStepSubmitted}
-          />
         </form>
       )}
     </>
