@@ -39,6 +39,12 @@
 
   /* Sizes */
   --size-border-radius-regular: 8px;
+  --size-border-radius-large: 16px;
+
+  @media (max-width: 900px) {
+    --size-border-radius-regular: 4px;
+    --size-border-radius-large: 8px;
+  }
 
   /* Timing */
   --time-transition-fast: 200ms;
@@ -59,7 +65,6 @@ body {
   display: flex;
   align-items: center;
   min-height: 100dvh;
-  padding: 20px;
 
   @media (max-width: 900px) {
     flex-direction: column;
@@ -67,16 +72,27 @@ body {
 }
 
 .wrapper {
-  --size-wrapper-padding: 16px;
+  --size-wrapper-padding: 15px;
+  width: min(940px, 100%);
+  margin-inline: auto;
+  padding-inline: var(--size-wrapper-padding);
+}
+
+.card {
+  --size-card-padding: 16px;
   display: flex;
   flex-wrap: wrap;
-  width: min(940px, 100%);
   min-height: 600px;
-  margin-inline: auto;
-  padding: var(--size-wrapper-padding);
+  padding: var(--size-card-padding);
   background-color: var(--clr-white);
-  border-radius: 16px;
+  border-radius: var(--size-border-radius-large);
   box-shadow: 0 10px 30px -10px rgb(0 0 0 / 0.15);
+
+  @media (max-width: 900px) {
+    --size-card-padding: 30px 25px;
+    min-height: auto;
+    margin-block: -70px 15px;
+  }
 }
 
 .sidebarLarge {
@@ -101,11 +117,27 @@ body {
   justify-content: space-between;
   gap: 20px;
   flex: 1;
-  padding-inline: 100px calc(100px - var(--size-wrapper-padding));
-  padding-block: 40px var(--size-wrapper-padding);
+  padding-inline: 100px calc(100px - var(--size-card-padding));
+  padding-block: 40px var(--size-card-padding);
 
   @media (max-width: 900px) {
-    padding: 15px;
+    padding: 0;
+  }
+}
+
+.mobileHeader {
+  display: none;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  height: 170px;
+  padding: 30px;
+  background-image: url(/src/assets/images/bg-sidebar-mobile.svg);
+  background-size: cover;
+  background-position: center;
+
+  @media (max-width: 900px) {
+    display: flex;
   }
 }
 
@@ -117,6 +149,10 @@ body {
 
 .mobileFooter {
   display: none;
+  background-color: var(--clr-white);
+  width: 100%;
+  margin-top: auto;
+  padding-block: 15px;
 
   @media (max-width: 900px) {
     display: block;

@@ -1,4 +1,9 @@
 .description {
   margin-bottom: 40px;
   color: var(--clr-cool-gray);
+  line-height: 1.5;
+
+  @media (max-width: 900px) {
+    margin-block: 10px 30px;
+  }
 }

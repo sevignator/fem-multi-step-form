@@ -6,7 +6,7 @@ export type ButtonProps = {
   type: 'button' | 'submit';
   variant?: 'primary' | 'secondary' | 'link';
   formId?: string;
-  clickHandler?: () => void;
+  clickHandler?: (e?: React.MouseEvent) => void;
 };
 
 function Button({

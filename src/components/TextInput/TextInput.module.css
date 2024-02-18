@@ -6,8 +6,13 @@
   display: flex;
   justify-content: space-between;
   gap: 15px;
-  font-size: 0.875rem;
   margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+
+  @media (max-width: 900px) {
+    margin-bottom: 0.25rem;
+    font-size: 0.75rem;
+  }
 }
 
 .label {
@@ -48,5 +53,9 @@
 
   &::placeholder {
     color: var(--clr-cool-gray);
+  }
+
+  @media (max-width: 900px) {
+    padding: 10px;
   }
 }

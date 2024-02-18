@@ -31,40 +31,54 @@ function App() {
   return (
     <DataProvider>
       <div className={styles.viewport}>
+        <header className={styles.mobileHeader}>
+          <Steps activeStepNumber={activeStepNumber} />
+        </header>
+
         <div className={styles.wrapper}>
-          <aside className={styles.sidebarLarge}>
-            <Steps activeStepNumber={activeStepNumber} />
-          </aside>
-          <main className={styles.main}>
-            <Form
-              formId={formId}
-              activeStepNumber={activeStepNumber}
-              stepsSubmitted={stepsSubmitted}
-              formSubmitted={formSubmitted}
-              setFormSubmitted={setFormSubmitted}
-            />
-            {!formSubmitted && (
-              <div className={styles.desktopFooter}>
-                <ButtonGroup
-                  formId={formId}
-                  activeStepNumber={activeStepNumber}
-                  maxStepNumber={stepComponents.length}
-                  changeActiveNumber={changeActiveNumber}
-                  changeStepSubmitted={changeStepSubmitted}
-                />
-              </div>
-            )}
-          </main>
+          <div className={styles.card}>
+            <aside className={styles.sidebarLarge}>
+              <Steps activeStepNumber={activeStepNumber} />
+            </aside>
+            <main className={styles.main}>
+              <Form
+                formId={formId}
+                activeStepNumber={activeStepNumber}
+                setActiveStepNumber={setActiveStepNumber}
+                stepsSubmitted={stepsSubmitted}
+                formSubmitted={formSubmitted}
+                setFormSubmitted={setFormSubmitted}
+              />
+              {!formSubmitted && (
+                <div className={styles.desktopFooter}>
+                  <ButtonGroup
+                    variant='large'
+                    formId={formId}
+                    activeStepNumber={activeStepNumber}
+                    maxStepNumber={stepComponents.length}
+                    changeActiveNumber={changeActiveNumber}
+                    changeStepSubmitted={changeStepSubmitted}
+                  />
+                </div>
+              )}
+            </main>
+          </div>
         </div>
-        <footer className={styles.mobileFooter}>
-          <ButtonGroup
-            formId={formId}
-            activeStepNumber={activeStepNumber}
-            maxStepNumber={stepComponents.length}
-            changeActiveNumber={changeActiveNumber}
-            changeStepSubmitted={changeStepSubmitted}
-          />
-        </footer>
+
+        {!formSubmitted && (
+          <footer className={styles.mobileFooter}>
+            <div className={styles.wrapper}>
+              <ButtonGroup
+                variant='small'
+                formId={formId}
+                activeStepNumber={activeStepNumber}
+                maxStepNumber={stepComponents.length}
+                changeActiveNumber={changeActiveNumber}
+                changeStepSubmitted={changeStepSubmitted}
+              />
+            </div>
+          </footer>
+        )}
       </div>
     </DataProvider>
   );

@@ -1,9 +1,12 @@
+import clsx from 'clsx';
+
 import styles from './ButtonGroup.module.css';
 import useDataContext from '../../hooks/useDataContext';
 
 import Button from '@components/Button';
 
 export type ButtonGroupProps = {
+  variant: 'small' | 'large';
   formId: string;
   activeStepNumber: number;
   maxStepNumber: number;
@@ -12,6 +15,7 @@ export type ButtonGroupProps = {
 };
 
 function ButtonGroup({
+  variant,
   formId,
   activeStepNumber,
   maxStepNumber,
@@ -37,7 +41,13 @@ function ButtonGroup({
   }
 
   return (
-    <div className={styles.group}>
+    <div
+      className={clsx(
+        styles.group,
+        variant === 'small' && styles.groupSmall,
+        variant === 'large' && styles.groupLarge
+      )}
+    >
       <div>
         {activeStepNumber > 1 && (
           <Button type='button' variant='link' clickHandler={goToPreviousStep}>
@@ -48,7 +58,12 @@ function ButtonGroup({
 
       <div>
         {activeStepNumber < maxStepNumber && (
-          <Button type='button' variant='secondary' clickHandler={goToNextStep}>
+          <Button
+            type='submit'
+            variant='secondary'
+            clickHandler={goToNextStep}
+            formId={formId}
+          >
             Next Step
           </Button>
         )}

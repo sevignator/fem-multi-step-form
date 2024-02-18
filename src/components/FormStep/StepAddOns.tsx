@@ -10,6 +10,7 @@ import Title from '@components/Title';
 export type StepAddOnsProps = {
   stepNumber: number;
   activeStepNumber: number;
+  setActiveStepNumber: (num: number) => void;
   stepSubmitted: boolean;
 };
 

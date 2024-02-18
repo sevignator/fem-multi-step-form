@@ -2,7 +2,7 @@
   padding: 1em;
   min-width: 7.5rem;
   border: 0;
-  border-radius: 8px;
+  border-radius: var(--size-border-radius-regular);
   background-color: transparent;
   font-family: inherit;
   font-size: 1rem;
@@ -12,6 +12,11 @@
   transition:
     opacity var(--time-transition-regular),
     color var(--time-transition-regular);
+
+  @media (max-width: 900px) {
+    min-width: 6rem;
+    font-size: 0.875em;
+  }
 }
 
 .link {

@@ -7,6 +7,7 @@ import iconThankYouSrc from '@assets/images/icon-thank-you.svg';
 export type FormProps = {
   formId: string;
   activeStepNumber: number;
+  setActiveStepNumber: (num: number) => void;
   stepsSubmitted: boolean[];
   formSubmitted: boolean;
   setFormSubmitted: (isSubmitted: boolean) => void;
@@ -15,13 +16,18 @@ export type FormProps = {
 function Form({
   formId,
   activeStepNumber,
+  setActiveStepNumber,
   stepsSubmitted,
   formSubmitted,
   setFormSubmitted,
 }: FormProps) {
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    setFormSubmitted(true);
+    console.log('Submitting');
+
+    if (activeStepNumber === 4) {
+      setFormSubmitted(true);
+    }
   }
 
   if (formSubmitted) {
@@ -51,6 +57,7 @@ function Form({
               key={index}
               stepNumber={index + 1}
               activeStepNumber={activeStepNumber}
+              setActiveStepNumber={setActiveStepNumber}
               stepSubmitted={stepsSubmitted[index]}
             />
           ))}

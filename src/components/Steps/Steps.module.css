@@ -6,6 +6,11 @@
   padding: 0;
   list-style: none;
   font-size: 0.875rem;
+
+  @media (max-width: 900px) {
+    flex-direction: row;
+    gap: 15px;
+  }
 }
 
 .step {
@@ -21,7 +26,8 @@
   width: 2rem;
   aspect-ratio: 1;
   border-radius: 100vw;
-  border: solid 1px white;
+  border: solid 1px var(--clr-white);
+  color: var(--clr-white);
   font-weight: 600;
   transition:
     background-color var(--time-transition-fast) ease-out,
@@ -39,6 +45,10 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
+
+  @media (max-width: 900px) {
+    display: none;
+  }
 }
 
 .stepHeader {

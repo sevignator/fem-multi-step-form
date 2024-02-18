@@ -11,6 +11,7 @@ import Title from '@components/Title';
 export type StepPlanProps = {
   stepNumber: number;
   activeStepNumber: number;
+  setActiveStepNumber: (num: number) => void;
   stepSubmitted: boolean;
 };
 
