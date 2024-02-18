@@ -1,3 +1,7 @@
+import iconArcadeSrc from '@assets/images/icon-arcade.svg';
+import iconAdvancedSrc from '@assets/images/icon-advanced.svg';
+import iconProSrc from '@assets/images/icon-pro.svg';
+
 export type PlanOption = {
   label: string;
   value: string;
@@ -17,19 +21,19 @@ export const planOptions: PlanOption[] = [
     label: 'Arcade',
     value: 'arcade',
     monthlyPrice: 9,
-    imgSrc: '/src/assets/images/icon-arcade.svg',
+    imgSrc: iconArcadeSrc,
   },
   {
     label: 'Advanced',
     value: 'advanced',
     monthlyPrice: 12,
-    imgSrc: '/src/assets/images/icon-advanced.svg',
+    imgSrc: iconAdvancedSrc,
   },
   {
     label: 'Pro',
     value: 'pro',
     monthlyPrice: 15,
-    imgSrc: '/src/assets/images/icon-pro.svg',
+    imgSrc: iconProSrc,
   },
 ];
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Form.module.css';
-import thankYouSrc from '@assets/images/icon-thank-you.svg';
+import iconThankYouSrc from '@assets/images/icon-thank-you.svg';
 
 import ButtonGroup from '@components/ButtonGroup';
 
@@ -43,7 +43,7 @@ function Form({ formId, activeStepNumber, setActiveStepNumber }: FormProps) {
     return (
       <div className={styles.confirmationWrapper}>
         <div>
-          <img src={thankYouSrc} alt='' />
+          <img src={iconThankYouSrc} alt='' />
         </div>
         <h1>Thank you!</h1>
         <p>
